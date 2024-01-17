@@ -23,6 +23,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class CreateClientCommand extends Command
 {
     protected static $defaultName = 'fos:oauth-server:create-client';
+    protected static $defaultDescription = 'Creates a new client';
 
     private $clientManager;
 
@@ -41,7 +42,6 @@ class CreateClientCommand extends Command
         parent::configure();
 
         $this
-            ->setDescription('Creates a new client')
             ->addOption(
                 'redirect-uri',
                 null,
@@ -92,6 +92,6 @@ EOT
 
         $io->table($headers, $rows);
 
-        return 0;
+        return Command::SUCCESS;
     }
 }
